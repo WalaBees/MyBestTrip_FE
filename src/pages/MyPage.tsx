@@ -1,27 +1,41 @@
-import React from "react";
-import styled from "styled-components";
-import { darkTheme, lightTheme } from "../styles/theme";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import styled from 'styled-components';
+import Sidebar from '../components/mypage/Sidebar';
+import ProfilePage from './mypage/ProfilePage';
+import FavoritesPage from './mypage/FavoritesPage';
+import ReviewsPage from './mypage/ReviewsPage';
+import TripsPage from './mypage/TripsPage';
+import InquiryPage from './mypage/InquiryPage';
 
-function MyPage() {
+const MyPage: React.FC = () => {
   return (
-    <Container>
-      <div>MyPage</div>
-    </Container>
+    <MyPageContainer>
+      <Sidebar />
+      <ContentArea>
+        <Routes>
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="favorites" element={<FavoritesPage />} />
+          <Route path="reviews" element={<ReviewsPage />} />
+          <Route path="trips" element={<TripsPage />} />
+          <Route path="inquiry" element={<InquiryPage />} />
+          <Route path="" element={<Navigate to="profile" replace />} />
+        </Routes>
+      </ContentArea>
+    </MyPageContainer>
   );
-}
+};
+
+const MyPageContainer = styled.div`
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+`;
+
+const ContentArea = styled.main`
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+`;
 
 export default MyPage;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 90vh; // 나중에 유동적으로 변경
-  justify-content: center;
-  align-items: center;
-  border: 2px solid ${lightTheme.colors.primary};
-  background-color: ${lightTheme.colors.background};
-  // 다크모드 확인:
-  /* background-color: ${darkTheme.colors.background}; */
-  color: ${lightTheme.colors.primary};
-`;
