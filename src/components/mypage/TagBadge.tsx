@@ -9,6 +9,8 @@ const TagBadge: React.FC<TagBadgeProps> = ({ label }) => {
   return <BadgeContainer>{label}</BadgeContainer>;
 };
 
+export default TagBadge; 
+
 const BadgeContainer = styled.span`
   background-color: #f0f0f0;
   color: #666;
@@ -18,5 +20,3 @@ const BadgeContainer = styled.span`
   font-weight: 500;
   white-space: nowrap;
 `;
-
-export default TagBadge; 

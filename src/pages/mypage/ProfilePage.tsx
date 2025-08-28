@@ -28,6 +28,9 @@ const ProfilePage: React.FC = () => {
   );
 };
 
+export default ProfilePage; 
+
+
 const ProfilePageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -46,5 +49,3 @@ const Divider = styled.div`
   height: 1px;
   background-color: #e5e5e5;
 `;
-
-export default ProfilePage; 

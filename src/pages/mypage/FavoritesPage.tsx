@@ -10,6 +10,8 @@ const FavoritesPage: React.FC = () => {
   );
 };
 
+export default FavoritesPage; 
+
 const PageContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -28,5 +30,3 @@ const ComingSoon = styled.div`
   font-size: 1rem;
   padding: 3rem 0;
 `;
-
-export default FavoritesPage; 

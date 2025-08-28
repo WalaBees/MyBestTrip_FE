@@ -1,32 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReviewList from '../../components/mypage/ReviewList';
+import { dummyReviews } from '../../data/reviewData';
 
 const ReviewsPage: React.FC = () => {
   return (
     <PageContainer>
-      <PageTitle>여행지 후기</PageTitle>
-      <ComingSoon>여행지 후기 기능이 곧 추가됩니다.</ComingSoon>
+      <ReviewList reviews={dummyReviews} />
     </PageContainer>
   );
 };
 
-const PageContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const PageTitle = styled.h1`
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 2rem;
-`;
-
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  padding: 3rem 0;
-`;
-
 export default ReviewsPage; 
+
+const PageContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+`;
+
+

@@ -26,6 +26,8 @@ const MyPage: React.FC = () => {
   );
 };
 
+export default MyPage;
+
 const MyPageContainer = styled.div`
   display: flex;
   min-height: 100vh;
@@ -41,4 +43,4 @@ const ContentArea = styled.main`
   // border: 1px solid red;
 `;
 
-export default MyPage;
+

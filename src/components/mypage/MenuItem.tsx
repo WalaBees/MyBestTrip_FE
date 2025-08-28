@@ -18,6 +18,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon, label, isActive, onClick }) =
   );
 };
 
+export default MenuItem; 
+
 const MenuItemContainer = styled.div<{ isActive: boolean }>`
   display: flex;
   align-items: center;
@@ -50,4 +52,3 @@ const Label = styled.span`
   font-size: 0.875rem;
 `;
 
-export default MenuItem; 
