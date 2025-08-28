@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { lightTheme } from '../../styles/theme';
 
 interface TravelListItemProps {
@@ -49,7 +51,7 @@ const TravelListItem: React.FC<TravelListItemProps> = ({
         </div>
       </ContentSection>
       <FavoriteButton onClick={onFavoriteClick} isFavorite={isFavorite}>
-        ♥
+        {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
       </FavoriteButton>
     </ListItemContainer>
   );
@@ -157,14 +159,13 @@ const RatingText = styled.span`
 const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   position: absolute;
   top: 12px;
-  right: 24px;
+  right: 12px;
   width: 32px;
   height: 32px;
-  border: 2px solid ${props => props.isFavorite ? '#ff6b6b' : '#333'};
+  border: none;
   border-radius: 50%;
-  background-color: ${props => props.isFavorite ? '#ff6b6b' : 'white'};
-  color: ${props => props.isFavorite ? 'white' : '#333'};
-  font-size: 16px;
+  background-color: transparent;
+  color: ${props => props.isFavorite ? '#ff6b6b' : '#333'};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -172,9 +173,11 @@ const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${props => props.isFavorite ? '#ff5252' : '#ff6b6b'};
-    color: white;
     transform: scale(1.1);
+  }
+
+  svg {
+    font-size: 20px;
   }
 `;
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { lightTheme } from '../../styles/theme';
 
 interface TravelCardProps {
@@ -30,7 +32,7 @@ const TravelCard: React.FC<TravelCardProps> = ({
       <ImageSection>
         <CardImage src={imageUrl} alt={title} />
         <FavoriteButton onClick={onFavoriteClick} isFavorite={isFavorite}>
-          ♥
+          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </FavoriteButton>
       </ImageSection>
       <ContentSection>
@@ -86,11 +88,10 @@ const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   right: 12px;
   width: 32px;
   height: 32px;
-  border: 2px solid white;
+  border: none;
   border-radius: 50%;
-  background-color: ${props => props.isFavorite ? '#ff6b6b' : 'rgba(255, 255, 255, 0.9)'};
-  color: ${props => props.isFavorite ? 'white' : '#ff6b6b'};
-  font-size: 16px;
+  background-color: rgba(189, 185, 185, 0.6);
+  color: ${props => props.isFavorite ? '#ff6b6b' : '#333'};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -98,8 +99,13 @@ const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${props => props.isFavorite ? '#ff5252' : 'white'};
+    background-color: rgba(128, 128, 128, 0.8);
     transform: scale(1.1);
+  }
+
+  svg {
+  margin-top: 3px;
+    font-size: 20px;
   }
 `;
 
