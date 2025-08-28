@@ -1,5 +1,5 @@
 // import { styled } from "@mui/material";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
