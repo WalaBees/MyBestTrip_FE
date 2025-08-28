@@ -28,7 +28,7 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => {
   return (
     <ListContainer>
       <HeaderSection>
-        <Title>여행지 후기 총 {reviews.length}건</Title>
+        <Title>여행지 후기 <Count>총 {reviews.length}건</Count></Title>
         <SortOptions currentSort={currentSort} onSortChange={setCurrentSort} />
       </HeaderSection>
       <Divider/>
@@ -62,6 +62,12 @@ const Title = styled.h2`
   font-weight: 600;
   color: #333;
   margin: 0;
+`;
+
+const Count = styled.span`
+  padding-left: 4px;
+  font-size: 14px;
+  color: ${lightTheme.colors.gray.dark};
 `;
 
 const ReviewsContainer = styled.div`

@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import type { Favorite, ViewMode } from '../../types/favorite';
+import type { Trip, ViewMode } from '../../types/trip';
 import ViewModeToggle from './ViewModeToggle';
-import EmptyFavorites from './EmptyFavorites';
+import EmptyTrips from './EmptyTrips';
 import { lightTheme } from '../../styles/theme';
 
-interface FavoritesListProps {
-  favorites: Favorite[];
+interface TripsListProps {
+  trips: Trip[];
 }
 
-const FavoritesList: React.FC<FavoritesListProps> = ({ favorites }) => {
+const TripsList: React.FC<TripsListProps> = ({ trips }) => {
   const [currentViewMode, setCurrentViewMode] = useState<ViewMode>('list');
 
-  if (favorites.length === 0) {
+  if (trips.length === 0) {
     return (
       <ListContainer>
         <HeaderSection>
-          <Title>즐겨찾기 <Count>총 0건</Count></Title>
+          <Title>이전 여행 <Count>총 0건</Count></Title>
           <ViewModeToggle currentMode={currentViewMode} onModeChange={setCurrentViewMode} />
         </HeaderSection>
         <Divider/>
-        <EmptyFavorites />
+        <EmptyTrips />
       </ListContainer>
     );
   }
@@ -28,18 +28,18 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ favorites }) => {
   return (
     <ListContainer>
       <HeaderSection>
-        <Title>즐겨찾기 총 {favorites.length}건</Title>
+        <Title>이전 여행 총 {trips.length}건</Title>
         <ViewModeToggle currentMode={currentViewMode} onModeChange={setCurrentViewMode} />
       </HeaderSection>
-      <FavoritesContainer>
-        {/* TODO: 실제 즐겨찾기 카드 컴포넌트 추가 */}
-        <ComingSoon>즐겨찾기 목록이 곧 추가됩니다.</ComingSoon>
-      </FavoritesContainer>
+      <TripsContainer>
+        {/* TODO: 실제 여행 카드 컴포넌트 추가 */}
+        <ComingSoon>이전 여행 목록이 곧 추가됩니다.</ComingSoon>
+      </TripsContainer>
     </ListContainer>
   );
 };
 
-export default FavoritesList; 
+export default TripsList; 
 
 const ListContainer = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ const Count = styled.span`
   color: ${lightTheme.colors.gray.dark};
 `;
 
-const FavoritesContainer = styled.div`
+const TripsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -83,3 +83,4 @@ const Divider = styled.div`
   height: 1px;
   background-color: ${lightTheme.colors.gray.light};
 `;
+
