@@ -16,8 +16,8 @@ const MyPage: React.FC = () => {
         <Routes>
           <Route path="profile" element={<ProfilePage />} />
           <Route path="favorites" element={<FavoritesPage />} />
-          <Route path="reviews" element={<ReviewsPage />} />
           <Route path="trips" element={<TripsPage />} />
+          <Route path="reviews" element={<ReviewsPage />} />
           <Route path="inquiry" element={<InquiryPage />} />
           <Route path="" element={<Navigate to="profile" replace />} />
         </Routes>

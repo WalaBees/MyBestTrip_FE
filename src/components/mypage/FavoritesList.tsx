@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import type { Favorite, ViewMode } from '../../types/favorite';
 import ViewModeToggle from './ViewModeToggle';
 import EmptyFavorites from './EmptyFavorites';
+import TravelCard from './TravelCard';
+import TravelListItem from './TravelListItem';
 import { lightTheme } from '../../styles/theme';
 
 interface FavoritesListProps {
@@ -16,7 +18,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ favorites }) => {
     return (
       <ListContainer>
         <HeaderSection>
-          <Title>즐겨찾기 <Count>총 0건</Count></Title>
+          <Title>즐겨찾기 총 0건</Title>
           <ViewModeToggle currentMode={currentViewMode} onModeChange={setCurrentViewMode} />
         </HeaderSection>
         <Divider/>
@@ -28,18 +30,44 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ favorites }) => {
   return (
     <ListContainer>
       <HeaderSection>
-        <Title>즐겨찾기 총 {favorites.length}건</Title>
+        <Title>즐겨찾기 <Count>총 {favorites.length}건</Count></Title>
         <ViewModeToggle currentMode={currentViewMode} onModeChange={setCurrentViewMode} />
       </HeaderSection>
+      <Divider/>
       <FavoritesContainer>
-        {/* TODO: 실제 즐겨찾기 카드 컴포넌트 추가 */}
-        <ComingSoon>즐겨찾기 목록이 곧 추가됩니다.</ComingSoon>
+        {currentViewMode === 'list' ? (
+          <ListViewContainer>
+            {favorites.map((favorite) => (
+              <TravelListItem
+                key={favorite.id}
+                title={favorite.title}
+                location={favorite.location}
+                imageUrl={favorite.imageUrl}
+                description={favorite.description}
+                isFavorite={true}
+                onFavoriteClick={() => console.log('즐겨찾기 해제:', favorite.id)}
+              />
+            ))}
+          </ListViewContainer>
+        ) : (
+          <GridContainer>
+            {favorites.map((favorite) => (
+              <TravelCard
+                key={favorite.id}
+                title={favorite.title}
+                location={favorite.location}
+                imageUrl={favorite.imageUrl}
+                description={favorite.description}
+                isFavorite={true}
+                onFavoriteClick={() => console.log('즐겨찾기 해제:', favorite.id)}
+              />
+            ))}
+          </GridContainer>
+        )}
       </FavoritesContainer>
     </ListContainer>
   );
 };
-
-export default FavoritesList; 
 
 const ListContainer = styled.div`
   display: flex;
@@ -71,11 +99,15 @@ const FavoritesContainer = styled.div`
   flex-direction: column;
 `;
 
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 16px;
-  padding: 40px 0;
+const ListViewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 `;
 
 const Divider = styled.div`
@@ -83,3 +115,5 @@ const Divider = styled.div`
   height: 1px;
   background-color: ${lightTheme.colors.gray.light};
 `;
+
+export default FavoritesList;

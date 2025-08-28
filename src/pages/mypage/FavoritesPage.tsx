@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import FavoritesList from '../../components/mypage/FavoritesList';
-import type { Favorite } from '../../types/favorite';
+import { dummyFavorites } from '../../data/favoriteData';
 
 const FavoritesPage: React.FC = () => {
-  // 빈 배열로 시작 (즐겨찾기가 없는 상태)
-  const favorites: Favorite[] = [];
-
   return (
     <PageContainer>
-      <FavoritesList favorites={favorites} />
+      <FavoritesList favorites={dummyFavorites} />
     </PageContainer>
   );
 };

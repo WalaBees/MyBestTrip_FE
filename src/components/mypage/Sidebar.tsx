@@ -1,6 +1,11 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import noteEditIcon from '../../assets/note-edit-outline.svg';
+import airplaneIcon from '../../assets/airplane.svg';
+import progressQuestionIcon from '../../assets/progress-question.svg';
 import TagBadge from './TagBadge';
 import MenuItem from './MenuItem';
 import { lightTheme } from '../../styles/theme';
@@ -29,11 +34,11 @@ const Sidebar: React.FC = () => {
   };
 
   const menuItems = [
-    { path: '/mypage/profile', label: '프로필 정보', icon: '👤' },
-    { path: '/mypage/favorites', label: '즐겨찾기', icon: '♥' },
-    { path: '/mypage/reviews', label: '여행지 후기', icon: '✏' },
-    { path: '/mypage/trips', label: '이전 여행', icon: '✈' },
-    { path: '/mypage/inquiry', label: '문의', icon: '?' }
+    { path: '/mypage/profile', label: '프로필 정보', icon: <PersonOutlineIcon /> },
+    { path: '/mypage/favorites', label: '즐겨찾기', icon: <FavoriteBorderIcon /> },
+    { path: '/mypage/trips', label: '이전 여행', icon: <img src={airplaneIcon} alt="airplane" /> },
+    { path: '/mypage/reviews', label: '여행지 후기', icon: <img src={noteEditIcon} alt="note edit" /> },
+    { path: '/mypage/inquiry', label: '문의', icon: <img src={progressQuestionIcon} alt="question" /> }
   ];
 
   const handleMenuClick = (path: string) => {
