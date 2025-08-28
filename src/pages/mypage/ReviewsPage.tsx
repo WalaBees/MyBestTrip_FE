@@ -17,6 +17,7 @@ const PageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
   padding: 0 24px;
+  margin-top: 52px;
 `;
 
 

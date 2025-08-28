@@ -48,6 +48,7 @@ const ListContainer = styled.div`
   flex-direction: column;
   gap: 24px;
   margin-top: 6px;
+//   border: 1px solid red;
 `;
 
 const HeaderSection = styled.div`
@@ -66,6 +67,7 @@ const Title = styled.h2`
 const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 24px;
 `;
 
 const Divider = styled.div`
