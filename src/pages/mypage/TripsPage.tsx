@@ -10,6 +10,8 @@ const TripsPage: React.FC = () => {
   );
 };
 
+export default TripsPage; 
+
 const PageContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -29,4 +31,3 @@ const ComingSoon = styled.div`
   padding: 3rem 0;
 `;
 
-export default TripsPage; 

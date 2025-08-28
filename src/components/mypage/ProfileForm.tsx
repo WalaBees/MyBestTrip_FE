@@ -100,6 +100,8 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ initialData, onSave }) => {
   );
 };
 
+export default ProfileForm; 
+
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -221,5 +223,3 @@ const SaveButton = styled.button`
     background-color: #e0e0e0;
   }
 `;
-
-export default ProfileForm; 

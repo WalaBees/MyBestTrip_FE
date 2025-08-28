@@ -32,6 +32,8 @@ const InquiryPage: React.FC = () => {
   );
 };
 
+export default InquiryPage; 
+
 const PageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -52,4 +54,3 @@ const Divider = styled.div`
 `;
 
 
-export default InquiryPage; 

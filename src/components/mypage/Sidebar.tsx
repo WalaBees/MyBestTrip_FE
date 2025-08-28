@@ -71,6 +71,8 @@ const Sidebar: React.FC = () => {
   );
 };
 
+export default Sidebar; 
+
 const SidebarContainer = styled.aside`
   width: 260px;
   background-color: #ffffff;
@@ -146,4 +148,3 @@ const MenuSection = styled.nav`
   gap: 0.5rem;
 `;
 
-export default Sidebar; 
