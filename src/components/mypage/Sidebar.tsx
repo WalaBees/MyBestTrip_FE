@@ -24,15 +24,15 @@ const Sidebar: React.FC = () => {
     mbti: 'ISFP',
     tripCount: 1,
     reviewCount: 3,
-    profileImage: 'https://via.placeholder.com/80x80/4A90E2/FFFFFF?text=김한동'
+    profileImage: 'https://cdn.pixabay.com/photo/2025/03/22/07/09/havanese-dog-9486395_1280.jpg'
   };
 
   const menuItems = [
     { path: '/mypage/profile', label: '프로필 정보', icon: '👤' },
-    { path: '/mypage/favorites', label: '즐겨찾기', icon: '❤️' },
-    { path: '/mypage/reviews', label: '여행지 후기', icon: '📝' },
-    { path: '/mypage/trips', label: '이전 여행', icon: '✈️' },
-    { path: '/mypage/inquiry', label: '문의', icon: '❓' }
+    { path: '/mypage/favorites', label: '즐겨찾기', icon: '♥' },
+    { path: '/mypage/reviews', label: '여행지 후기', icon: '✏' },
+    { path: '/mypage/trips', label: '이전 여행', icon: '✈' },
+    { path: '/mypage/inquiry', label: '문의', icon: '?' }
   ];
 
   const handleMenuClick = (path: string) => {
@@ -43,7 +43,6 @@ const Sidebar: React.FC = () => {
     <SidebarContainer>
       <ProfileSection>
         <ProfileImage src={userProfile.profileImage} alt="프로필 이미지" />
-        <ProfileChangeButton>프로필 사진 변경하기</ProfileChangeButton>
       </ProfileSection>
       
       <UserInfoSection>
@@ -55,7 +54,7 @@ const Sidebar: React.FC = () => {
           <TagBadge label={`리뷰 ${userProfile.reviewCount}`} />
         </TagContainer>
       </UserInfoSection>
-
+      <Divider></Divider>
       <MenuSection>
         {menuItems.map((item) => (
           <MenuItem
@@ -78,7 +77,7 @@ const SidebarContainer = styled.aside`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  // border: 1px solid blue;
 `;
 
 const ProfileSection = styled.div`
@@ -86,6 +85,9 @@ const ProfileSection = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  // border: 1px solid blue;
+  margin-top: 12px;
+  margin-bottom: 12px;
 `;
 
 const ProfileImage = styled.img`
@@ -96,34 +98,29 @@ const ProfileImage = styled.img`
   border: 2px solid #f0f0f0;
 `;
 
-const ProfileChangeButton = styled.button`
-  background: none;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: #f5f5f5;
-    border-color: #ccc;
-  }
-`;
-
 const UserInfoSection = styled.div`
+  // border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 `;
 
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 24px 0;
+  margin-bottom: 42px;
+  margin-top: 42px;
+`;
+
 const Nickname = styled.h2`
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 600;
   color: #333;
   margin: 0;
+  margin-top: 6px;
 `;
 
 const Introduction = styled.p`
@@ -131,6 +128,7 @@ const Introduction = styled.p`
   color: #666;
   margin: 0;
   text-align: center;
+  margin-top: 6px;
 `;
 
 const TagContainer = styled.div`
@@ -138,6 +136,7 @@ const TagContainer = styled.div`
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 8px;
 `;
 
 const MenuSection = styled.nav`

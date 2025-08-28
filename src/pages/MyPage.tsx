@@ -30,12 +30,15 @@ const MyPageContainer = styled.div`
   display: flex;
   min-height: 100vh;
   background-color: #ffffff;
+  // border: 1px solid blue;
+  width: 100vw;
 `;
 
 const ContentArea = styled.main`
   flex: 1;
-  padding: 2rem;
+  margin-top: 32px;
   background-color: #ffffff;
+  // border: 1px solid red;
 `;
 
 export default MyPage;

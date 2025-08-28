@@ -19,6 +19,7 @@ const ProfilePage: React.FC = () => {
   return (
     <ProfilePageContainer>
       <PageTitle>프로필 정보</PageTitle>
+      <Divider></Divider>
       <ProfileForm 
         initialData={profileData}
         onSave={handleSave}
@@ -28,15 +29,22 @@ const ProfilePage: React.FC = () => {
 };
 
 const ProfilePageContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  // border: 1px solid red;
 `;
 
 const PageTitle = styled.h1`
-  font-size: 1.75rem;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
   margin-bottom: 2rem;
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #e5e5e5;
 `;
 
 export default ProfilePage; 

@@ -35,9 +35,14 @@ const MenuItemContainer = styled.div<{ isActive: boolean }>`
 `;
 
 const Icon = styled.span`
-  font-size: 1.125rem;
-  width: 1.5rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  font-size: 1rem;
 `;
 
 const Label = styled.span`
