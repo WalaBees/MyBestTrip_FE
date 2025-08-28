@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import type { Trip, ViewMode } from '../../types/trip';
 import ViewModeToggle from './ViewModeToggle';
 import EmptyTrips from './EmptyTrips';
+import TravelCard from './TravelCard';
+import TravelListItem from './TravelListItem';
 import { lightTheme } from '../../styles/theme';
 
 interface TripsListProps {
@@ -28,18 +30,44 @@ const TripsList: React.FC<TripsListProps> = ({ trips }) => {
   return (
     <ListContainer>
       <HeaderSection>
-        <Title>이전 여행 총 {trips.length}건</Title>
+        <Title>이전 여행 <Count>총 {trips.length}건</Count></Title>
         <ViewModeToggle currentMode={currentViewMode} onModeChange={setCurrentViewMode} />
       </HeaderSection>
+      <Divider/>
       <TripsContainer>
-        {/* TODO: 실제 여행 카드 컴포넌트 추가 */}
-        <ComingSoon>이전 여행 목록이 곧 추가됩니다.</ComingSoon>
+        {currentViewMode === 'list' ? (
+          <ListViewContainer>
+            {trips.map((trip) => (
+              <TravelListItem
+                key={trip.id}
+                title={trip.title}
+                location={trip.location}
+                imageUrl={trip.imageUrl}
+                description={trip.description}
+                isFavorite={false}
+                onFavoriteClick={() => console.log('즐겨찾기 추가:', trip.id)}
+              />
+            ))}
+          </ListViewContainer>
+        ) : (
+          <GridContainer>
+            {trips.map((trip) => (
+              <TravelCard
+                key={trip.id}
+                title={trip.title}
+                location={trip.location}
+                imageUrl={trip.imageUrl}
+                description={trip.description}
+                isFavorite={false}
+                onFavoriteClick={() => console.log('즐겨찾기 추가:', trip.id)}
+              />
+            ))}
+          </GridContainer>
+        )}
       </TripsContainer>
     </ListContainer>
   );
 };
-
-export default TripsList; 
 
 const ListContainer = styled.div`
   display: flex;
@@ -71,11 +99,15 @@ const TripsContainer = styled.div`
   flex-direction: column;
 `;
 
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 16px;
-  padding: 40px 0;
+const ListViewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 `;
 
 const Divider = styled.div`
@@ -83,4 +115,6 @@ const Divider = styled.div`
   height: 1px;
   background-color: ${lightTheme.colors.gray.light};
 `;
+
+export default TripsList;
 
