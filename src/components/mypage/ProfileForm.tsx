@@ -194,7 +194,7 @@ const Select = styled.select`
   background-color: white;
   cursor: pointer;
   transition: border-color 0.2s ease;
-  height: 42px;
+  height: 46px;
 
   &:focus {
     outline: none;
