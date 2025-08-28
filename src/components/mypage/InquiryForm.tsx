@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { lightTheme } from '../../styles/theme';
 
 interface InquiryData {
   category: string;
@@ -116,13 +117,13 @@ const FormField = styled.div`
 
 const Input = styled.input`
   padding-left: 24px;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   font-size: 14px;
   transition: border-color 0.2s ease;
   height: 42px;
-
-  &:focus {
+  
+ &:focus {
     outline: none;
     border-color: #007bff;
   }
@@ -130,7 +131,7 @@ const Input = styled.input`
 
 const Select = styled.select`
   padding-left: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   font-size: 14px;
   background-color: white;
@@ -141,13 +142,13 @@ const Select = styled.select`
 
   &:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: ${lightTheme.colors.primary};
   }
 `;
 
 const TextArea = styled.textarea`
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
@@ -172,23 +173,23 @@ const FileSection = styled.div`
 const FileButton = styled.button`
   align-self: flex-start;
   background: none;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   padding: 8px 16px;
   font-size: 14px;
-  color: #666;
+  color: ${lightTheme.colors.textSecondary};
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #f5f5f5;
-    border-color: #ccc;
+    background-color: ${lightTheme.colors.backgroundLight};
+    border-color: ${lightTheme.colors.border};
   }
 `;
 
 const FileNote = styled.div`
   font-size: 12px;
-  color: #666;
+  color: ${lightTheme.colors.textSecondary};
 `;
 
 const BottomSection = styled.div`
@@ -207,8 +208,8 @@ const ButtonSection = styled.div`
 
 const CancelButton = styled.button`
   background-color: white;
-  color: #333;
-  border: 1px solid #ddd;
+  color: ${lightTheme.colors.textSecondary};
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   padding: 16px 42px;
   font-size: 14px;
@@ -217,14 +218,14 @@ const CancelButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #f5f5f5;
-    border-color: #ccc;
+    background-color: ${lightTheme.colors.backgroundLight};
+    border-color: ${lightTheme.colors.border};
   }
 `;
 
 const SubmitButton = styled.button`
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: ${lightTheme.colors.backgroundLight};
+  color: ${lightTheme.colors.textSecondary};
   border: none;
   border-radius: 8px;
   padding: 16px 42px;
@@ -235,6 +236,6 @@ const SubmitButton = styled.button`
   margin-right: 100px;
 
   &:hover {
-    background-color: #e0e0e0;
+    background-color: ${lightTheme.colors.backgroundExtraLight};
   }
 `;

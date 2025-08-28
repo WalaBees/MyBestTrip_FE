@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { lightTheme } from '../../styles/theme';
 
 interface MenuItemProps {
   icon: string;
@@ -25,12 +26,12 @@ const MenuItemContainer = styled.div<{ isActive: boolean }>`
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: ${props => props.isActive ? '#f5f5f5' : 'transparent'};
-  color: ${props => props.isActive ? '#333' : '#666'};
+  background-color: ${props => props.isActive ? lightTheme.colors.backgroundLight : 'transparent'};
+  color: ${props => props.isActive ? '#333' : lightTheme.colors.gray.dark};
   font-weight: ${props => props.isActive ? '500' : '400'};
 
   &:hover {
-    background-color: ${props => props.isActive ? '#f0f0f0' : '#f9f9f9'};
+    background-color: ${props => props.isActive ? lightTheme.colors.gray.light : '#f9f9f9'};
   }
 `;
 
@@ -40,7 +41,7 @@ const Icon = styled.span`
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  background-color: #f0f0f0;
+  background-color: ${lightTheme.colors.gray.light};
   border-radius: 50%;
   font-size: 1rem;
 `;

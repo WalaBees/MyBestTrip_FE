@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import InquiryForm from '../../components/mypage/InquiryForm';
+import { lightTheme } from '../../styles/theme';
 
 interface InquiryData {
   category: string;
@@ -47,7 +48,7 @@ const PageTitle = styled.h1`
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #e5e5e5;
+  background-color: ${lightTheme.colors.gray.light};
 `;
 
 

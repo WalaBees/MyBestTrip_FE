@@ -3,6 +3,15 @@ interface Colors {
   secondary: string;
   tertiary: string;
   background: string;
+  gray: {
+    light: string;
+    medium: string;
+    dark: string;
+  };
+  border: string;
+  textSecondary: string;
+  backgroundLight: string;
+  backgroundExtraLight: string;
 }
 
 interface Theme {
@@ -17,6 +26,15 @@ export const lightTheme: Theme = {
     primary: "#6200ee",
     secondary: "#B979FE",
     tertiary: "#ECEBFB",
+    gray: {
+      light: "#F0F0F0",
+      medium: "#E5E5E5",
+      dark: "#666666"
+    },
+    border: "#E5E5E5",
+    textSecondary: "#666",
+    backgroundLight: "#f5f5f5",
+    backgroundExtraLight: "#e0e0e0"
   },
 };
 
@@ -27,5 +45,14 @@ export const darkTheme: Theme = {
     primary: "#7730DA",
     secondary: "#B979FE",
     tertiary: "#ECEBFB",
+    gray: {
+      light: "#F0F0F0",
+      medium: "#E5E5E5",
+      dark: "#666666"
+    },
+    border: "#ddd",
+    textSecondary: "#666",
+    backgroundLight: "#f5f5f5",
+    backgroundExtraLight: "#e0e0e0"
   },
 };

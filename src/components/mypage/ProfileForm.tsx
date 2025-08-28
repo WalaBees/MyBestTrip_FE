@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { lightTheme } from '../../styles/theme';
 
 interface ProfileData {
   nickname: string;
@@ -128,23 +129,23 @@ const LargeProfileImage = styled.img`
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #f0f0f0;
+  border: 2px solid ${lightTheme.colors.gray.light};
 `;
 
 const ProfileChangeButton = styled.button`
   background: none;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  color: #666;
+  color: ${lightTheme.colors.gray.dark};
   cursor: pointer;
   transition: all 0.2s ease;
   height: 42px;
   margin-top: 12px;
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: ${lightTheme.colors.gray.light};
     border-color: #ccc;
   }
 `;
@@ -174,7 +175,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding-left: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   font-size: 0.875rem;
   transition: border-color 0.2s ease;
@@ -188,7 +189,7 @@ const Input = styled.input`
 
 const Select = styled.select`
   padding: 0.75rem;
-  border: 1px solid #ddd;
+   border: 1px solid ${lightTheme.colors.border};
   border-radius: 8px;
   font-size: 0.875rem;
   background-color: white;
@@ -204,7 +205,7 @@ const Select = styled.select`
 
 const SaveButton = styled.button`
   align-self: flex-end;
-  background-color: #f0f0f0;
+  background-color: ${lightTheme.colors.gray.light};
   color: #333;
   border: none;
   border-radius: 8px;
