@@ -31,8 +31,8 @@ const Sidebar: React.FC = () => {
   const menuItems = [
     { path: '/mypage/profile', label: '프로필 정보', icon: '👤' },
     { path: '/mypage/favorites', label: '즐겨찾기', icon: '♥' },
-    { path: '/mypage/reviews', label: '여행지 후기', icon: '✏' },
     { path: '/mypage/trips', label: '이전 여행', icon: '✈' },
+    { path: '/mypage/reviews', label: '여행지 후기', icon: '✏' },
     { path: '/mypage/inquiry', label: '문의', icon: '?' }
   ];
 
