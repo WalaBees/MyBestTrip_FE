@@ -1,32 +1,55 @@
 import React from 'react';
 import styled from 'styled-components';
+import InquiryForm from '../../components/mypage/InquiryForm';
+import { lightTheme } from '../../styles/theme';
+
+interface InquiryData {
+  category: string;
+  title: string;
+  content: string;
+}
 
 const InquiryPage: React.FC = () => {
+  const handleSubmit = (data: InquiryData) => {
+    console.log('문의 제출:', data);
+    // TODO: API 호출 로직 추가
+  };
+
+  const handleCancel = () => {
+    console.log('문의 취소');
+    // TODO: 취소 로직 추가 (예: 이전 페이지로 이동)
+  };
+
   return (
     <PageContainer>
       <PageTitle>문의</PageTitle>
-      <ComingSoon>문의 기능이 곧 추가됩니다.</ComingSoon>
+      <Divider></Divider>
+      <InquiryForm 
+        onSubmit={handleSubmit}
+        onCancel={handleCancel}
+      />
     </PageContainer>
   );
 };
 
 const PageContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  // border: 1px solid blue;
 `;
 
 const PageTitle = styled.h1`
-  font-size: 1.75rem;
+  font-size: 18px;
   font-weight: 600;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 `;
 
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  padding: 3rem 0;
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${lightTheme.colors.gray.light};
 `;
+
 
 export default InquiryPage; 

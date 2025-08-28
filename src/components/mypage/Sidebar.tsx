@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import TagBadge from './TagBadge';
 import MenuItem from './MenuItem';
+import { lightTheme } from '../../styles/theme';
 
 interface UserProfile {
   nickname: string;
@@ -71,9 +72,9 @@ const Sidebar: React.FC = () => {
 };
 
 const SidebarContainer = styled.aside`
-  width: 320px;
+  width: 260px;
   background-color: #ffffff;
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid ${lightTheme.colors.gray.light};
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -95,7 +96,7 @@ const ProfileImage = styled.img`
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #f0f0f0;
+  border: 2px solid ${lightTheme.colors.gray.light};
 `;
 
 const UserInfoSection = styled.div`
@@ -109,7 +110,7 @@ const UserInfoSection = styled.div`
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #e5e5e5;
+  background-color: ${lightTheme.colors.gray.light};
   margin: 24px 0;
   margin-bottom: 42px;
   margin-top: 42px;
@@ -125,7 +126,7 @@ const Nickname = styled.h2`
 
 const Introduction = styled.p`
   font-size: 0.875rem;
-  color: #666;
+  color: ${lightTheme.colors.gray.dark};
   margin: 0;
   text-align: center;
   margin-top: 6px;
