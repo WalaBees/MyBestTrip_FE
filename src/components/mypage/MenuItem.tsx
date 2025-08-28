@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { lightTheme } from '../../styles/theme';
 
 interface MenuItemProps {
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   isActive: boolean;
   onClick: () => void;
@@ -46,6 +46,17 @@ const Icon = styled.span`
   background-color: ${lightTheme.colors.gray.light};
   border-radius: 50%;
   font-size: 1rem;
+
+  svg {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  img {
+    width: 1rem;
+    height: 1rem;
+  }
 `;
 
 const Label = styled.span`
