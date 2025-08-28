@@ -55,6 +55,8 @@ const TravelListItem: React.FC<TravelListItemProps> = ({
   );
 };
 
+export default TravelListItem; 
+
 const ListItemContainer = styled.div`
   position: relative;
   display: flex;
@@ -176,4 +178,3 @@ const FavoriteButton = styled.button<{ isFavorite: boolean }>`
   }
 `;
 
-export default TravelListItem; 

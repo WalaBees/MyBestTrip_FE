@@ -35,23 +35,25 @@ const TravelCard: React.FC<TravelCardProps> = ({
       </ImageSection>
       <ContentSection>
         <TitleSection>
-          <MainTitle>{title}</MainTitle>
-          <SubTitle>{location}</SubTitle>
+          <SubTitle>{title}</SubTitle>
+          <MainTitle>{location}</MainTitle>
         </TitleSection>
-        <Description>{description}</Description>
+        <RatingSection>
+          <StarIcon>★</StarIcon>
+          <RatingText>{rating} ({reviewCount.toLocaleString()})</RatingText>
+        </RatingSection>
         <TagsSection>
           {tags.map((tag, index) => (
             <Tag key={index}>{tag}</Tag>
           ))}
         </TagsSection>
-        <RatingSection>
-          <StarIcon>★</StarIcon>
-          <RatingText>{rating} ({reviewCount.toLocaleString()})</RatingText>
-        </RatingSection>
+       
       </ContentSection>
     </CardContainer>
   );
 };
+
+export default TravelCard; 
 
 const CardContainer = styled.div`
   background-color: white;
@@ -69,7 +71,7 @@ const CardContainer = styled.div`
 const ImageSection = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 160px;
 `;
 
 const CardImage = styled.img`
@@ -113,35 +115,32 @@ const MainTitle = styled.h3`
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin: 0 0 4px 0;
+  margin: 0;
+  padding-top: 4px;
+  padding-bottom: 8px;
 `;
 
 const SubTitle = styled.h4`
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: ${lightTheme.colors.gray.dark};
   margin: 0;
+  padding-bottom: 4px;
 `;
 
-const Description = styled.p`
-  font-size: 14px;
-  color: #333;
-  line-height: 1.4;
-  margin: 0 0 12px 0;
-`;
 
 const TagsSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 12px;
+  margin-top: 12px;
 `;
 
 const Tag = styled.span`
-  background-color: ${lightTheme.colors.gray.light};
+  background-color: ${lightTheme.colors.backgroundLight};
   color: ${lightTheme.colors.gray.dark};
   font-size: 12px;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 12px;
 `;
 
@@ -157,9 +156,8 @@ const StarIcon = styled.span`
 `;
 
 const RatingText = styled.span`
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #333;
 `;
 
-export default TravelCard; 
