@@ -1,32 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import FavoritesList from '../../components/mypage/FavoritesList';
+import type { Favorite } from '../../types/favorite';
 
 const FavoritesPage: React.FC = () => {
+  // 빈 배열로 시작 (즐겨찾기가 없는 상태)
+  const favorites: Favorite[] = [];
+
   return (
     <PageContainer>
-      <PageTitle>즐겨찾기</PageTitle>
-      <ComingSoon>즐겨찾기 기능이 곧 추가됩니다.</ComingSoon>
+      <FavoritesList favorites={favorites} />
     </PageContainer>
   );
 };
 
-export default FavoritesPage; 
-
 const PageContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  margin-top: 52px;
+  padding: 0 24px;
 `;
 
-const PageTitle = styled.h1`
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 2rem;
-`;
-
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  padding: 3rem 0;
-`;
+export default FavoritesPage;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import ProfileForm from '../../components/mypage/ProfileForm';
+import { lightTheme } from '../../styles/theme';
 
 const ProfilePage: React.FC = () => {
   const [profileData, setProfileData] = useState({
@@ -19,7 +20,7 @@ const ProfilePage: React.FC = () => {
   return (
     <ProfilePageContainer>
       <PageTitle>프로필 정보</PageTitle>
-      <Divider></Divider>
+      <Divider/>
       <ProfileForm 
         initialData={profileData}
         onSave={handleSave}
@@ -34,6 +35,7 @@ export default ProfilePage;
 const ProfilePageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
+  margin-top: 52px;
   // border: 1px solid red;
 `;
 
@@ -47,5 +49,5 @@ const PageTitle = styled.h1`
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #e5e5e5;
+  background-color: ${lightTheme.colors.gray.light};
 `;

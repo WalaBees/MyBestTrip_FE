@@ -37,6 +37,7 @@ export default InquiryPage;
 const PageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
+  margin-top: 52px;
   // border: 1px solid blue;
 `;
 

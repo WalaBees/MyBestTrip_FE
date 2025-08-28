@@ -1,33 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import TripsList from '../../components/mypage/TripsList';
+import type { Trip } from '../../types/trip';
 
 const TripsPage: React.FC = () => {
+  // 빈 배열로 시작 (이전 여행이 없는 상태)
+  const trips: Trip[] = [];
+
   return (
     <PageContainer>
-      <PageTitle>이전 여행</PageTitle>
-      <ComingSoon>이전 여행 기능이 곧 추가됩니다.</ComingSoon>
+      <TripsList trips={trips} />
     </PageContainer>
   );
 };
 
-export default TripsPage; 
+export default TripsPage;
+
 
 const PageContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  margin-top: 52px;
+  padding: 0 24px;
 `;
 
-const PageTitle = styled.h1`
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 2rem;
-`;
-
-const ComingSoon = styled.div`
-  text-align: center;
-  color: #666;
-  font-size: 1rem;
-  padding: 3rem 0;
-`;
 
