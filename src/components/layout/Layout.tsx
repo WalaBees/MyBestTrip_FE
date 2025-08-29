@@ -1,10 +1,11 @@
 // import { styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import Header from "./Header";
 
 const Layout = () => {
   return (
     <div>
-      <header style={{ background: "#eee", padding: "1rem" }}>Header</header>
+      <Header />
       <main
         style={{
           display: "flex",
