@@ -1,11 +1,43 @@
-import React from "react";
+import  { useState } from "react";
 import styled from "styled-components";
-import { darkTheme, lightTheme } from "../styles/theme";
+import { lightTheme } from "../styles/theme";
+import MainCarousel from "../components/homepage/MainCarousel";
+import SearchBar from "../components/homepage/SearchBar";
+import MbtiDestinationsCarousel from "../components/homepage/MbtiDestinationsCarousel";
+import TabNavigation from "../components/homepage/TabNavigation";
+import PersonalizedRecommendations from "../components/homepage/PersonalizedRecommendations";
+import RegionRecommendations from "../components/homepage/RegionRecommendations";
+import ReversalTrip from "../components/homepage/ReversalTrip";
+import FloatingModal from "../components/homepage/FloatingModal";
 
 function Home() {
+  const [activeTab, setActiveTab] = useState<'mbti' | 'region'>('mbti');
+  const [showFloatingModal, setShowFloatingModal] = useState(true);
+
+  const handleReversalTripClick = (category: string) => {
+    // TODO: 반전 여행 페이지로 이동하는 로직 구현
+    console.log(`반전 여행 카테고리 클릭: ${category}`);
+  };
+
+  const handleCloseFloatingModal = () => {
+    setShowFloatingModal(false);
+  };
+
   return (
     <Container>
-      <div>HomePage</div>
+      <MainCarousel />
+      <SearchBar />
+      <MbtiDestinationsCarousel />
+      <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+      {activeTab === 'mbti' ? (
+        <PersonalizedRecommendations />
+      ) : (
+        <RegionRecommendations />
+      )}
+      <ReversalTrip onCategoryClick={handleReversalTripClick} />
+      {showFloatingModal && (
+        <FloatingModal onClose={handleCloseFloatingModal} />
+      )}
     </Container>
   );
 }
@@ -16,12 +48,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 90vh; // 나중에 유동적으로 변경
-  justify-content: center;
-  align-items: center;
-  border: 2px solid ${lightTheme.colors.primary};
-  background-color: ${lightTheme.colors.background};
-  // 다크모드 확인:
-  /* background-color: ${darkTheme.colors.background}; */
+  min-height: 100vh;
+  background-color: white;
   color: ${lightTheme.colors.primary};
+  padding-bottom: 180px;
 `;
