@@ -67,7 +67,7 @@ const ListItemContainer = styled.div`
   background-color: white;
   margin-bottom: 16px;
   transition: box-shadow 0.2s ease;
-  height: 160px;
+  height: 172px;
 
   &:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -93,6 +93,7 @@ const ContentSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  // border: 1px solid red;
 `;
 
 const TitleSection = styled.div`
@@ -135,7 +136,7 @@ const Tag = styled.span`
   color: ${lightTheme.colors.gray.dark};
   font-size: 12px;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
 `;
 
 const RatingSection = styled.div`
