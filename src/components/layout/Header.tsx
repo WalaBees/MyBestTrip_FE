@@ -9,6 +9,8 @@ const Header = () => {
     <Container>
       <Logo onClick={() => navigate('/')}>My Best Trip</Logo>
       <Menus>
+        <Menu onClick={() => navigate('/')}>홈</Menu>
+        <Menu>여행지 정보</Menu>
         <Menu>여행지 밸런스 게임</Menu>
         <Menu>반전여행지</Menu>
         <Menu onClick={() => navigate('/mypage')}>마이페이지</Menu>
