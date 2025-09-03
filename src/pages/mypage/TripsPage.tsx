@@ -15,7 +15,7 @@ const PageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
   margin-top: 52px;
-  padding: 0 24px;
+  margin-bottom: 80px;
 `;
 
 export default TripsPage;
