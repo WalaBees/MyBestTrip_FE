@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import DestinationInfo from "./pages/DestinationInfo";
+import BalanceGamePage from "./pages/BalanceGamePage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "mypage/*",
         element: <MyPage />,
+      },
+      {
+        path: "/balance-game",
+        element: <BalanceGamePage />,
       },
     ],
   },
