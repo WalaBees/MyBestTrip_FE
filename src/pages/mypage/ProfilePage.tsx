@@ -35,15 +35,18 @@ export default ProfilePage;
 const ProfilePageContainer = styled.div`
   max-width: 900px;
   margin: 0 auto;
-  margin-top: 52px;
+  margin-top: 58px;
   // border: 1px solid red;
+  margin-bottom: 80px;
+  // border: 1px solid blue;
 `;
 
-const PageTitle = styled.h1`
+const PageTitle = styled.h2`
   font-size: 18px;
   font-weight: 600;
   color: #333;
   margin-bottom: 2rem;
+  // border: 1px solid red;
 `;
 
 const Divider = styled.div`

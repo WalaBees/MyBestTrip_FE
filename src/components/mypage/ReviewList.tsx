@@ -47,8 +47,8 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 6px;
-//   border: 1px solid red;
+  // border: 1px solid red;
+  margin-bottom: 80px;
 `;
 
 const HeaderSection = styled.div`
@@ -73,7 +73,7 @@ const Count = styled.span`
 const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
+  margin-top: 4px;
 `;
 
 const Divider = styled.div`
