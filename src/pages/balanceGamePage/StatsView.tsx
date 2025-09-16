@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import type { MBTI, Question } from "./types.ts";
 import { mockDistribution } from "./utils/distribution";
-import { Divider, StatNote, Em, Nav, NavButton } from "./styles";
+import { Divider, StatNote, Em } from "./styles";
 import BarRow from "./BarRow";
 
-type Props = { mbti: MBTI; question: Question; onNext: () => void };
+type Props = { mbti: MBTI; question: Question };
 
-const StatsView: React.FC<Props> = ({ mbti, question, onNext }) => {
+const StatsView: React.FC<Props> = ({ mbti, question }) => {
   const dist = useMemo(
     () => mockDistribution(mbti, question),
     [mbti, question]
