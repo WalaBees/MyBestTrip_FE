@@ -14,7 +14,7 @@ const Header = () => {
         <Menu onClick={() => navigate("/balance-game")}>
           여행지 밸런스 게임
         </Menu>
-        <Menu>반전여행지</Menu>
+        <Menu onClick={() => navigate("/reverse")}>반전여행지</Menu>
         <Menu onClick={() => navigate("/mypage")}>마이페이지</Menu>
       </Menus>
     </Container>
