@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import DestinationInfo from "./pages/DestinationInfo";
 import BalanceGamePage from "./pages/BalanceGamePage";
+import ReversePage from "./pages/ReversePage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/balance-game",
         element: <BalanceGamePage />,
+      },
+      {
+        path: "/reverse",
+        element: <ReversePage />,
       },
     ],
   },
