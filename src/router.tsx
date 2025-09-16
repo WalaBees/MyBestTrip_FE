@@ -7,6 +7,7 @@ import BalanceGamePage from "./pages/BalanceGamePage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import { AuthProvider } from "./auth/AuthContext"; // Provider
 import RequireAuth from "./auth/RequireAuth"; // 가드
+import ReversePage from "./pages/ReversePage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
         children: [
           { path: "mypage/*", element: <MyPage /> },
           { path: "balance-game", element: <BalanceGamePage /> },
+          { path: "reverse", element: <ReversePage /> },
         ],
       },
 
