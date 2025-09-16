@@ -96,7 +96,9 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
             <Count>
               {answers.length}/{total}
             </Count>
-            <NavButton onClick={() => navigate("/")}>홈으로 돌아가기</NavButton>
+            <NavButton onClick={() => navigate("/home")}>
+              홈으로 돌아가기
+            </NavButton>
           </div>
         </Header>
 
