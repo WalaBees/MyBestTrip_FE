@@ -4,30 +4,69 @@ import Home from "./pages/Home";
 import MyPage from "./pages/MyPage";
 import DestinationInfo from "./pages/DestinationInfo";
 import BalanceGamePage from "./pages/BalanceGamePage";
+import LoginPage from "./pages/loginPage/LoginPage";
+import { AuthProvider } from "./auth/AuthContext"; // Provider
+import RequireAuth from "./auth/RequireAuth"; // 가드
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <AuthProvider>
+        <Layout />
+      </AuthProvider>
+    ),
     children: [
+      { path: "home/*", element: <Home /> }, // 공개
+      { path: "destination-info", element: <DestinationInfo /> }, // 공개
+
+      // 보호 라우트 묶음
       {
-        path: "",
-        element: <Home />,
+        element: <RequireAuth />,
+        children: [
+          { path: "mypage/*", element: <MyPage /> },
+          { path: "balance-game", element: <BalanceGamePage /> },
+        ],
       },
-      {
-        path: "destination-info",
-        element: <DestinationInfo />,
-      },
-      {
-        path: "mypage/*",
-        element: <MyPage />,
-      },
-      {
-        path: "/balance-game",
-        element: <BalanceGamePage />,
-      },
+
+      //  로그인 페이지 (항상 접근 가능)
+      { path: "login", element: <LoginPage /> },
     ],
   },
 ]);
 
 export default router;
+
+// import { createBrowserRouter } from "react-router-dom";
+// import Layout from "./components/layout/Layout";
+// import Home from "./pages/Home";
+// import MyPage from "./pages/MyPage";
+// import DestinationInfo from "./pages/DestinationInfo";
+// import BalanceGamePage from "./pages/BalanceGamePage";
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Layout />,
+//     children: [
+//       {
+//         path: "",
+//         element: <Home />,
+//       },
+//       {
+//         path: "destination-info",
+//         element: <DestinationInfo />,
+//       },
+//       {
+//         path: "mypage/*",
+//         element: <MyPage />,
+//       },
+//       {
+//         path: "/balance-game",
+//         element: <BalanceGamePage />,
+//       },
+//     ],
+//   },
+// ]);
+
+// export default router;

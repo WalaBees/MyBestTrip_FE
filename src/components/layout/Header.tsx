@@ -7,9 +7,9 @@ const Header = () => {
 
   return (
     <Container>
-      <Logo onClick={() => navigate("/")}>My Best Trip</Logo>
+      <Logo onClick={() => navigate("/home")}>My Best Trip</Logo>
       <Menus>
-        <Menu onClick={() => navigate("/")}>홈</Menu>
+        <Menu onClick={() => navigate("/home")}>홈</Menu>
         <Menu onClick={() => navigate("/destination-info")}>여행지 정보</Menu>
         <Menu onClick={() => navigate("/balance-game")}>
           여행지 밸런스 게임
