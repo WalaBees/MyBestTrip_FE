@@ -8,8 +8,9 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import { AuthProvider } from "./auth/AuthContext"; // Provider
 import RequireAuth from "./auth/RequireAuth"; // 가드
 import ReversePage from "./pages/ReversePage";
+import DetailPage from "./pages/DetailPage";
 import { TravelBalanceGame } from "./pages/travel-balance";
-import SignUpPage from "./pages/SignupPage";
+import SignUpPage from "./pages/SignUpPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
           { path: "balance-game", element: <TravelBalanceGame /> },
           // { path: "balance-game", element: <BalanceGamePage /> },
           { path: "reverse", element: <ReversePage /> },
+          { path: "detail", element: <DetailPage /> },
         ],
       },
 
