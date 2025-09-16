@@ -9,6 +9,8 @@ import { AuthProvider } from "./auth/AuthContext"; // Provider
 import RequireAuth from "./auth/RequireAuth"; // 가드
 import ReversePage from "./pages/ReversePage";
 import DetailPage from "./pages/DetailPage";
+import { TravelBalanceGame } from "./pages/travel-balance";
+import SignUpPage from "./pages/SignUpPage";
 
 const router = createBrowserRouter([
   {
@@ -27,13 +29,15 @@ const router = createBrowserRouter([
         element: <RequireAuth />,
         children: [
           { path: "mypage/*", element: <MyPage /> },
-          { path: "balance-game", element: <BalanceGamePage /> },
+          { path: "balance-game", element: <TravelBalanceGame /> },
+          // { path: "balance-game", element: <BalanceGamePage /> },
           { path: "reverse", element: <ReversePage /> },
           { path: "detail", element: <DetailPage /> },
         ],
       },
 
       //  로그인 페이지 (항상 접근 가능)
+      { path: "signup", element: <SignUpPage /> },
       { path: "login", element: <LoginPage /> },
     ],
   },
