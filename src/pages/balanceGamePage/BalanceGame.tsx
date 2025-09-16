@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { MBTI, AnswerRecord, BalanceGameProps } from "./types";
 import { QUESTIONS } from "./data/questions";
@@ -25,6 +24,7 @@ import {
 } from "./styles";
 import StatsView from "./StatsView";
 import Summary from "./Summary";
+import { useMemo, useState } from "react";
 
 const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
   const navigate = useNavigate();
@@ -40,7 +40,16 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
     [answers.length, total]
   );
 
+  const finished = answers.length === total;
+  const isLast = current === total - 1;
+  const canGoPrev = current > 0;
+  const canGoNext = current < total - 1;
+  const answeredThis = answers.find((a) => a.questionId === question.id)?.pick;
+
+  const shouldShowStats = finished || showStatsFor === question.id;
+
   function handlePick(pick: "A" | "B") {
+    if (finished) return; // 완료 상태에서는 선택 비활성화
     const q = QUESTIONS[current];
     setAnswers((prev) => {
       const next = prev.filter((a) => a.questionId !== q.id);
@@ -51,27 +60,31 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
   }
 
   function handleNext() {
-    setShowStatsFor(null);
-    if (current < total - 1) {
-      setCurrent((i) => i + 1);
-    } else {
-      const agreeRate = calcAgreeRate(mbti, answers);
-      onFinish?.({ mbti, answers, agreeRate });
+    // 완료 전: 다음으로 이동 또는 완료 처리
+    if (!finished) {
+      if (current < total - 1) {
+        setShowStatsFor(null);
+        setCurrent((i) => i + 1);
+      } else {
+        const agreeRate = calcAgreeRate(mbti, answers);
+        onFinish?.({ mbti, answers, agreeRate });
+        // 완료 직후 현재 문항 통계를 계속 보여주기
+        setShowStatsFor(QUESTIONS[current].id);
+      }
+      return;
     }
+    // 완료 후: 검토 네비게이션만 수행
+    if (current < total - 1) setCurrent((i) => i + 1);
   }
 
   function handlePrev() {
-    setShowStatsFor(null);
     if (current > 0) setCurrent((i) => i - 1);
   }
-
-  const isLast = current === total - 1;
-  const answeredThis = answers.find((a) => a.questionId === question.id)?.pick;
-  const finished = answers.length === total;
 
   return (
     <Page>
       <Container>
+        {/* 상단: 좌측 타이틀, 우측 카운트 + 홈 버튼 (항상 표시) */}
         <Header>
           <div>
             <Title>MBTI 여행 밸런스 게임</Title>
@@ -79,9 +92,12 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
               내 MBTI: <Em>{mbti}</Em>
             </Sub>
           </div>
-          <Count>
-            {answers.length}/{total}
-          </Count>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <Count>
+              {answers.length}/{total}
+            </Count>
+            <NavButton onClick={() => navigate("/")}>홈으로 돌아가기</NavButton>
+          </div>
         </Header>
 
         <ProgressWrap>
@@ -104,6 +120,7 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
                   key={key}
                   onClick={() => handlePick(isA ? "A" : "B")}
                   $picked={picked}
+                  disabled={finished}
                 >
                   <ChoiceKey>{key}</ChoiceKey>
                   <ChoiceText $picked={picked}>{choice.label}</ChoiceText>
@@ -112,7 +129,7 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
             })}
           </ChoicesGrid>
 
-          {showStatsFor === question.id && (
+          {shouldShowStats && (
             <StatsView
               key={`stats-${question.id}`}
               mbti={mbti}
@@ -121,28 +138,18 @@ const BalanceGame: React.FC<BalanceGameProps> = ({ mbti, onFinish }) => {
             />
           )}
 
-          {!showStatsFor && (
-            <Nav>
-              <NavButton onClick={handlePrev} disabled={current === 0}>
-                이전
-              </NavButton>
-              {finished ? (
-                <>
-                  <NavButton $primary onClick={() => navigate("/")}>
-                    홈으로 돌아가기
-                  </NavButton>
-                </>
-              ) : (
-                <NavButton
-                  $primary
-                  onClick={handleNext}
-                  disabled={answeredThis == null}
-                >
-                  {isLast ? "완료" : "다음"}
-                </NavButton>
-              )}
-            </Nav>
-          )}
+          <Nav>
+            <NavButton onClick={handlePrev} disabled={!canGoPrev}>
+              이전
+            </NavButton>
+            <NavButton
+              $primary
+              onClick={handleNext}
+              disabled={(!finished && answeredThis == null) || !canGoNext}
+            >
+              {finished ? "다음" : isLast ? "완료" : "다음"}
+            </NavButton>
+          </Nav>
         </Card>
 
         {finished && <Summary mbti={mbti} answers={answers} />}

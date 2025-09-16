@@ -30,12 +30,6 @@ const StatsView: React.FC<Props> = ({ mbti, question, onNext }) => {
         count={dist.bCount}
         highlight={major === "B"}
       />
-
-      <Nav style={{ marginTop: 24, justifyContent: "flex-end" }}>
-        <NavButton $primary onClick={onNext}>
-          다음
-        </NavButton>
-      </Nav>
     </Divider>
   );
 };
