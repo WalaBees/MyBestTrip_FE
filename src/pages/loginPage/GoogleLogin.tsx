@@ -1,7 +1,7 @@
-/// <reference types="google.accounts" />
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { jwtDecode } from "jwt-decode";
+import GoogleMaterialButton from "./GoogleMaterialButton";
 
 interface Props {
   handleGoogleLoginSuccess: (data: { email: string; name: string }) => void;
@@ -71,13 +71,12 @@ const GoogleLogin = ({ handleGoogleLoginSuccess }: Props) => {
   return (
     <>
       <HiddenDiv ref={googleSignInButton} />
-      <GoogleButtonImage
-        src={"asset/images/logo_google.png"}
-        alt="google login"
+      <GoogleMaterialButton
         onClick={() => {
           const internalBtn = googleSignInButton.current?.querySelector(
             "div[role=button]"
           ) as HTMLElement | null;
+
           internalBtn?.click();
         }}
       />
